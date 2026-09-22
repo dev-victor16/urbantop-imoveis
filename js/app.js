@@ -6,7 +6,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
   initMobileDrawer();
-  initCounters();
   initPropertiesShowcase();
   initHeroSearch();
   initModal();
@@ -70,45 +69,6 @@ function initMobileDrawer() {
   });
 }
 
-/* --------------------------------------------------------------------------
-   CONTADORES ANIMADOS (STATS STRIP)
-   -------------------------------------------------------------------------- */
-function initCounters() {
-  const statNumbers = document.querySelectorAll('.stat-number');
-  if (!statNumbers.length) return;
-
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const el = entry.target;
-        const targetVal = parseInt(el.getAttribute('data-target') || '0', 10);
-        const prefix = el.getAttribute('data-prefix') || '';
-        const suffix = el.getAttribute('data-suffix') || '';
-        animateValue(el, 0, targetVal, 1600, prefix, suffix);
-        obs.unobserve(el);
-      }
-    });
-  }, { threshold: 0.5 });
-
-  statNumbers.forEach(num => observer.observe(num));
-}
-
-function animateValue(el, start, end, duration, prefix = '', suffix = '') {
-  let startTimestamp = null;
-  const step = (timestamp) => {
-    if (!startTimestamp) startTimestamp = timestamp;
-    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-    // easeOutQuad
-    const current = Math.floor(progress * (2 - progress) * (end - start) + start);
-    el.innerHTML = `${prefix}${current.toLocaleString('pt-BR')}${suffix}`;
-    if (progress < 1) {
-      window.requestAnimationFrame(step);
-    } else {
-      el.innerHTML = `${prefix}${end.toLocaleString('pt-BR')}${suffix}`;
-    }
-  };
-  window.requestAnimationFrame(step);
-}
 
 /* --------------------------------------------------------------------------
    VITRINE DE IMÓVEIS (RENDER & FILTROS)

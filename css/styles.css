@@ -375,22 +375,22 @@ h1, h2, h3, h4, h5, h6 {
 .brand-logo-wrap {
   display: flex;
   align-items: center;
-  background: #FFFFFF;
-  padding: 6px 14px;
-  border-radius: var(--radius-sm);
-  border: 1px solid rgba(229, 179, 42, 0.3);
-  transition: var(--transition-fast);
+  background: transparent;
+  padding: 0;
+  border: none;
+  transition: var(--transition-normal);
 }
 
-.brand-logo-wrap:hover {
-  border-color: var(--gold);
-  box-shadow: 0 0 15px rgba(229, 179, 42, 0.3);
+.brand-logo-wrap:hover .brand-logo-img {
+  filter: drop-shadow(0 2px 14px rgba(229, 179, 42, 0.45));
+  transform: translateY(-1px) scale(1.02);
 }
 
 .brand-logo-img {
-  height: 38px;
+  height: 48px;
   width: auto;
   object-fit: contain;
+  transition: var(--transition-normal);
 }
 
 /* Navigation Links */
@@ -798,57 +798,6 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1rem;
 }
 
-/* --------------------------------------------------------------------------
-   MÉTRICAS & CREDENCIAIS (STATS STRIP)
-   -------------------------------------------------------------------------- */
-.stats-strip {
-  background: #0E1118;
-  border-top: 1px solid rgba(229, 179, 42, 0.15);
-  border-bottom: 1px solid rgba(229, 179, 42, 0.15);
-  padding: 40px 0;
-  position: relative;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-}
-
-.stat-card {
-  padding: 20px 24px;
-  border-right: 1px solid rgba(255, 255, 255, 0.06);
-  display: flex;
-  flex-direction: column;
-}
-
-.stat-card:last-child {
-  border-right: none;
-}
-
-.stat-number {
-  font-family: var(--font-heading);
-  font-size: clamp(2rem, 3.2vw, 2.75rem);
-  font-weight: 800;
-  color: var(--gold);
-  line-height: 1;
-  margin-bottom: 6px;
-  display: flex;
-  align-items: baseline;
-  gap: 4px;
-}
-
-.stat-label {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #FFFFFF;
-  margin-bottom: 4px;
-}
-
-.stat-sub {
-  font-size: 0.82rem;
-  color: var(--text-light-muted);
-}
 
 /* --------------------------------------------------------------------------
    VITRINE DE IMÓVEIS (PROPERTY SHOWCASE)
@@ -974,31 +923,37 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .prop-badge {
-  padding: 5px 12px;
-  background: rgba(11, 13, 18, 0.85);
+  padding: 4px 10px;
+  background: rgba(11, 13, 18, 0.75);
   backdrop-filter: blur(8px);
-  color: var(--gold);
-  border: 1px solid rgba(229, 179, 42, 0.4);
-  border-radius: var(--radius-full);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.03em;
+  -webkit-backdrop-filter: blur(8px);
+  color: #F9FAFB;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-sm);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
 }
 
 .prop-badge.badge-mcmv {
-  background: rgba(229, 179, 42, 0.95);
-  color: #000000;
+  background: linear-gradient(135deg, var(--gold) 0%, #D8A41F 100%);
+  color: #0B0D12;
+  font-weight: 700;
   border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
 .prop-code-pill {
-  padding: 4px 10px;
-  background: rgba(0, 0, 0, 0.7);
+  padding: 4px 8px;
+  background: rgba(11, 13, 18, 0.65);
   backdrop-filter: blur(6px);
-  color: #FFFFFF;
-  border-radius: var(--radius-full);
-  font-size: 0.75rem;
+  -webkit-backdrop-filter: blur(6px);
+  color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-sm);
+  font-size: 0.7rem;
   font-weight: 600;
+  letter-spacing: 0.04em;
 }
 
 .prop-body {
@@ -2072,22 +2027,6 @@ h1, h2, h3, h4, h5, h6 {
   .footer-grid {
     grid-template-columns: 1fr 1fr;
   }
-
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-  }
-
-  .stat-card {
-    border-right: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    padding-bottom: 24px;
-  }
-
-  .stat-card:nth-child(3),
-  .stat-card:nth-child(4) {
-    border-bottom: none;
-  }
 }
 
 @media (max-width: 860px) {
@@ -2130,18 +2069,6 @@ h1, h2, h3, h4, h5, h6 {
 
   .properties-grid {
     grid-template-columns: 1fr;
-  }
-
-  .stats-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .stat-card {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  }
-
-  .stat-card:last-child {
-    border-bottom: none;
   }
 
   .footer-grid {
