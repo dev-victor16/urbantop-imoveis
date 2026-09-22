@@ -798,6 +798,29 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1rem;
 }
 
+.hero-creci-simple {
+  margin-top: 16px;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-light-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.hero-creci-simple span:first-child {
+  color: #D1D5DB;
+}
+
+.hero-creci-simple span:last-child {
+  color: var(--gold);
+  font-weight: 600;
+}
+
 
 /* --------------------------------------------------------------------------
    VITRINE DE IMÓVEIS (PROPERTY SHOWCASE)
