@@ -1,0 +1,7 @@
+# Ignorar pastas temporárias e do sistema
+.gemini/
+.system_generated/
+scratch/
+*.log
+.DS_Store
+Thumbs.db
